@@ -22,7 +22,7 @@ limitations under the License.
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>PDF.js viewer</title>
+    <title>Bookwarm viewer</title>
 
     <!--#if FIREFOX || MOZCENTRAL-->
     <!--#include /content/pdf/viewer-snippet-firefox-extension.html-->
@@ -75,6 +75,10 @@ limitations under the License.
 
     <script src="../../Scripts/debugger.js" type="text/javascript"></script>
     <script src="../../Scripts/viewer.js" type="text/javascript"></script>
+    
+    <script src="../../Scripts/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/bookwarm.js" type="text/javascript"></script>
+
   </head>
 
   <body>
@@ -145,7 +149,6 @@ limitations under the License.
               </div>
               <div id="toolbarViewerRight">
                 <input id="fileInput" class="fileInput" type="file" oncontextmenu="return false;" style="visibility: hidden; position: fixed; right: 0; top: 0" />
-
 
                 <button id="fullscreen" class="toolbarButton fullscreen" title="Switch to Presentation Mode" tabindex="11" data-l10n-id="presentation_mode">
                   <span data-l10n-id="presentation_mode_label">Presentation Mode</span>

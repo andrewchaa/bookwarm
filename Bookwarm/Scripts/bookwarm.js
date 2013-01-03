@@ -1,0 +1,4 @@
+﻿$(function () {
+//    $('#pageNumber')
+    alert('hello');
+});
