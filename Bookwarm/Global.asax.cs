@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Bookwarm.Infrastructure;
+using Castle.Windsor;
+using Castle.Windsor.Installer;
 
 namespace Bookwarm
 {
@@ -14,6 +16,8 @@ namespace Bookwarm
 
     public class WebApiApplication : System.Web.HttpApplication
     {
+        private IWindsorContainer _container;
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -22,6 +26,21 @@ namespace Bookwarm
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            RegisterWindsorContainer);
+
+        }
+
+        private void RegisterWindsorContainer(HttpConfiguration configuration)
+        {
+
+            _container = new WindsorContainer().Install(FromAssembly.This());
+            ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(_container.Kernel));
+        }
+
+        protected void Application_End()
+        {
+            _container.Dispose();
         }
     }
 }
