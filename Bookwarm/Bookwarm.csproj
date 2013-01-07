@@ -147,7 +147,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\WindsorControllerFactory.cs" />
+    <Compile Include="Infrastructure\WebApiTypedFactoryComponentSelector.cs" />
+    <Compile Include="Infrastructure\WindsorHttpDependencyResolver.cs" />
+    <Compile Include="Infrastructure\WindsorMvcControllerFactory.cs" />
+    <Compile Include="Installers\ApiControllerInstaller.cs" />
     <Compile Include="Installers\ControllerInstaller.cs" />
     <Compile Include="Installers\RepositoryInstaller.cs" />
     <Compile Include="Models\Reading.cs" />

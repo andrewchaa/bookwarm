@@ -27,15 +27,16 @@ namespace Bookwarm
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            RegisterWindsorContainer);
+            RegisterWindsorContainer();
 
         }
 
-        private void RegisterWindsorContainer(HttpConfiguration configuration)
+        private void RegisterWindsorContainer()
         {
 
             _container = new WindsorContainer().Install(FromAssembly.This());
-            ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(_container.Kernel));
+            ControllerBuilder.Current.SetControllerFactory(new WindsorMvcControllerFactory(_container.Kernel));
+            GlobalConfiguration.Configuration.DependencyResolver = new WindsorHttpDependencyResolver(_container.Kernel);
         }
 
         protected void Application_End()

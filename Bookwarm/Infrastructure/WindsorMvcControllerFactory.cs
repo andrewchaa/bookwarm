@@ -7,11 +7,11 @@ using Castle.MicroKernel;
 
 namespace Bookwarm.Infrastructure
 {
-    public class WindsorControllerFactory : DefaultControllerFactory
+    public class WindsorMvcControllerFactory : DefaultControllerFactory
     {
         private readonly IKernel _kernel;
 
-        public WindsorControllerFactory(IKernel kernel)
+        public WindsorMvcControllerFactory(IKernel kernel)
         {
             _kernel = kernel;
         }
