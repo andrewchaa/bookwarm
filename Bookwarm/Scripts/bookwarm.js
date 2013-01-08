@@ -8,5 +8,5 @@
             title: document.title
         });
     };
-    window.setInterval(pageNumberCheck, 10000);
+    window.setInterval(pageNumberCheck, 20000);
 });

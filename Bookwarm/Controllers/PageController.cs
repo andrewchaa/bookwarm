@@ -33,6 +33,11 @@ namespace Bookwarm.Controllers
         // POST api/page
         public void Post(Reading reading)
         {
+            if (string.IsNullOrEmpty(reading.Title))
+                return;
+
+            reading.LastUpdate = DateTime.UtcNow;
+            _repository.Save(reading);
         }
 
         // PUT api/page/5

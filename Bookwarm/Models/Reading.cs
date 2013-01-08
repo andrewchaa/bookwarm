@@ -5,10 +5,11 @@ using System.Web;
 
 namespace Bookwarm.Models
 {
-    public class Reading
+    public class Reading : Entity
     {
-        public string UserName { get; set; }
-        public int PageNumber { get; set; }
-        public string Title { get; set; }
+        public virtual string UserName { get; set; }
+        public virtual int PageNumber { get; set; }
+        public virtual string Title { get; set; }
+        public virtual DateTime? LastUpdate { get; set; }
     }
 }
