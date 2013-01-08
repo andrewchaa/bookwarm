@@ -161,6 +161,7 @@
     <Compile Include="Services\ReadingRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\images\annotation-check.svg" />
     <Content Include="Content\images\annotation-comment.svg" />
     <Content Include="Content\images\annotation-help.svg" />
@@ -192,7 +193,6 @@
     <Content Include="Content\images\toolbarButton-viewThumbnail.png" />
     <Content Include="Content\images\toolbarButton-zoomIn.png" />
     <Content Include="Content\images\toolbarButton-zoomOut.png" />
-    <Content Include="Content\pdf\viewer-snippet-firefox-extension.html" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -251,6 +251,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bookwarm.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\compatibility.js" />
     <Content Include="Scripts\debugger.js" />
     <Content Include="Scripts\external\builder\builder.js" />
@@ -269,6 +271,7 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\pdf.js" />
     <Content Include="Scripts\src\api.js" />
     <Content Include="Scripts\src\bidi.js" />
     <Content Include="Scripts\src\canvas.js" />
@@ -332,6 +335,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\helloworld.pdf" />
     <None Include="Scripts\external\jasmine\MIT.LICENSE" />
     <None Include="Scripts\external\jpgjs\LICENSE" />
     <None Include="Scripts\external\shelljs\ChangeLog" />
@@ -339,6 +343,7 @@
     <None Include="Scripts\external\shelljs\package.json" />
     <None Include="Scripts\external\shelljs\README.md" />
     <None Include="Scripts\external\webL10n\README.md" />
+    <Content Include="Views\Home\Test.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
