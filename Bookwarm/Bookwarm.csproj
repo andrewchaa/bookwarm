@@ -335,7 +335,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\helloworld.pdf" />
+    <None Include="Content\compressed.tracemonkey-pldi-09.pdf" />
     <None Include="Scripts\external\jasmine\MIT.LICENSE" />
     <None Include="Scripts\external\jpgjs\LICENSE" />
     <None Include="Scripts\external\shelljs\ChangeLog" />
