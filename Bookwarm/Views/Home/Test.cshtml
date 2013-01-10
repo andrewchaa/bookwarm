@@ -66,34 +66,54 @@
     <script src="~/Scripts/pdf.js"></script>
     <script src="~/Scripts/jquery-1.8.3.min.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="https://www.dropbox.com/static/api/1/dropbox.js" id="dropboxjs" data-app-key="iyico4lrivly01m"></script>
 
     <script type="text/javascript">
-        $(function() {
-            PDFJS.workerSrc = '/Scripts/pdf.js';
-            PDFJS.getDocument('/Content/compressed.tracemonkey-pldi-09.pdf').then(function (pdf) {
-                // Using promise to fetch the page
-                pdf.getPage(1).then(function (page) {
-                    var scale = 1.5;
-                    var viewport = page.getViewport(scale);
+        $(function () {
+            var openDocument = function(url) {
 
-                    //
-                    // Prepare canvas using PDF page dimensions
-                    //
-                    var canvas = $('#the-canvas')[0];
-                    var context = canvas.getContext('2d');
-                    canvas.height = viewport.height;
-                    canvas.width = viewport.width;
+//                PDFJS.getDocument('/Content/compressed.tracemonkey-pldi-09.pdf').then(function (pdf) {
+                PDFJS.getDocument(url).then(function (pdf) {
+                    // Using promise to fetch the page
+                    pdf.getPage(1).then(function (page) {
+                        var scale = 1.5;
+                        var viewport = page.getViewport(scale);
 
-                    //
-                    // Render PDF page into canvas context
-                    //
-                    var renderContext = {
-                        canvasContext: context,
-                        viewport: viewport
-                    };
-                    page.render(renderContext);
+                        var canvas = $('#the-canvas')[0];
+                        var context = canvas.getContext('2d');
+                        canvas.height = viewport.height;
+                        canvas.width = viewport.width;
+
+                        var renderContext = {
+                            canvasContext: context,
+                            viewport: viewport
+                        };
+                        page.render(renderContext);
+                    });
                 });
+
+            };
+
+
+            PDFJS.workerSrc = '/Scripts/pdf.js';
+
+            $('#lnkOpenFile').click(function () {
+
+                var options = {
+                    linkType: "direct",
+                    success: function(files) {
+                        alert("Here's the file link:" + files[0].link);
+                        openDocument(files[0].link);
+                    },
+                    cancel:  function() {
+                    }
+                };
+
+                Dropbox.choose(options);
+
+
             });
+
 
             
         })
